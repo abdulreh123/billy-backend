@@ -173,5 +173,10 @@ email status until they click the link in the confirmation email.`
     scopes: {},
   },
   
+  groups:{
+    collection: 'group',
+    via: 'member',
+    through: 'userGroup'
+  }
   // connection: 'NotDefaultModelsConnection'  
 };
