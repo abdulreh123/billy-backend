@@ -1,12 +1,13 @@
 /**
- * User.js
+ * Category.js
  *
- * A user who can log in to this application.
+ * @description :: A model definition represents a database table/collection.
+ * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
- 'use strict';
- const Sequelize = require("Sequelize")
- module.exports = {
 
+module.exports = {
+
+ 
   attributes: {
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
@@ -15,16 +16,16 @@
 
     name: {
       type: Sequelize.STRING,
-      required: true,
-      maxLength: 200,
-      example: 'levent 9'
+      required: true
     },
 
 
-    groupHead: {
+    userId: {
       type: Sequelize.INTEGER,
-      required: true,
-      description: 'head of the group',
+    },
+
+    groupId: {
+      type: Sequelize.INTEGER,
     },
 
 
@@ -42,15 +43,13 @@
   },
 
  options: {                                  // Options must exists (even if empty) in order to consider this model a Sequelize model
-    tableName: 'groups',
+    tableName: 'categories',
     classMethods: {},
     instanceMethods: {},
     hooks: {},
     scopes: {},
   },
-  associations: function() {
-    sails.models.group.belongsToMany(sails.models.users, {through:'user_group',foreignKey: 'GroupId', as: 'users' });
-    sails.models.group.hasMany(sails.models.category, {foreignKey: 'groupId', as: 'categories' });
-  },
-  // connection: 'NotDefaultModelsConnection'  
+  
+
 };
+

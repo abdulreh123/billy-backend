@@ -172,11 +172,9 @@ email status until they click the link in the confirmation email.`
     hooks: {},
     scopes: {},
   },
-  
-  groups:{
-    collection: 'group',
-    via: 'member',
-    through: 'userGroup'
-  }
+  associations: function() {
+    sails.models.users.belongsToMany(sails.models.group, {through:'user_group',foreignKey: 'userId', as: 'groups' });
+  },
+ 
   // connection: 'NotDefaultModelsConnection'  
 };

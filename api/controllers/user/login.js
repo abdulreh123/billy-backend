@@ -1,5 +1,5 @@
 bcrypt = require('bcrypt');
-jwt = require("jsonwebtoken");
+jwt = require('jsonwebtoken');
 module.exports = {
 
 
@@ -44,9 +44,9 @@ module.exports = {
           error: `${inputs.emailAddress} not found`,
         });
       }
-      const check = await bcrypt.compare(inputs.password, user.password)
+      const check = await bcrypt.compare(inputs.password, user.password);
       if (check) {
-        const token = await jwt.sign({ id: user.id, emailAddress: user.emailAddress, password: user.password }, "billyApp", {
+        const token = await jwt.sign({ id: user.id, emailAddress: user.emailAddress, password: user.password }, 'billyApp', {
           expiresIn: 36000,
         });
         env.req.session.authenticated = true;
